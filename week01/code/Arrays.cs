@@ -9,16 +9,20 @@ public static class Arrays
     public static double[] MultiplesOf(double number, int length)
     {
         // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
-
-        return []; // replace this return statement with your own
+        // create an empty array of doubles of size length
+        // start with the number and create a loop that multiplies the number by the loop index
+        // store each result in the array and return the array
+        double[] multiplesList = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            multiplesList[i] = number * (i + 1);
+        }
+        return multiplesList;
     }
 
     /// <summary>
-    /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
-    /// List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9} and an amount is 3 then the list after the function runs should be 
+    /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is
+    /// List<int>{1, 2, 3, 4, 5, 6, 7, 8, 9} and an amount is 3 then the list after the function runs should be
     /// List<int>{7, 8, 9, 1, 2, 3, 4, 5, 6}.  The value of amount will be in the range of 1 to data.Count, inclusive.
     ///
     /// Because a list is dynamic, this function will modify the existing data list rather than returning a new list.
@@ -26,8 +30,23 @@ public static class Arrays
     public static void RotateListRight(List<int> data, int amount)
     {
         // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // create a list1 and add the values in data
+        // create a list2 and add the values in list1 starting at the index of data.Count - amount to the end of list1
+        // remove the values added to list2 from list1
+        // add the remaining values in list1 to list2
+
+        var list1 = new List<int>(data);
+            var list2 = new List<int>();
+
+        for (int i = data.Count - amount; i < list1.Count; i++)
+        {
+            list2.Add(list1[i]);
+        }
+
+        list1.RemoveRange(data.Count - amount, amount);
+        list2.AddRange(list1);
+
+        data.Clear();
+        data.AddRange(list2);
     }
 }
