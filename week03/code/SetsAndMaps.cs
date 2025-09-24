@@ -171,7 +171,7 @@ public static class SetsAndMaps
         foreach (var feature in featureCollection.Features)
         {
             var place = feature.Properties.Place;
-            var magnitude = feature.Properties.Mag;
+            var magnitude = feature.Properties.Mag?.ToString() ?? "Unknown";
             var summary = $"{place} - Mag {magnitude}";
             result.Add(summary);
         }
