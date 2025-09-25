@@ -8,7 +8,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Create a queue with the following people and priorities: Peter (1), Tim (5), Sue (3), and Bob (2)
     // Expected Result: Tim, Sue, Bob, Peter
-    // Defect(s) Found: 0
+    // Defect(s) Found: 1, expected 'Sue' and actual was 'Tim'. It's not checking last item in the list.
     public void TestPriorityQueue_HighestPriorityFirst()
     {
         var priorityQueue = new PriorityQueue();
@@ -26,7 +26,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Create a queue with the following people and priorities: Bob (2), Tim (5), Sue (3), John (5), and Peter (1)
     // Expected Result: Tim, John, Sue, Bob, Peter
-    // Defect(s) Found: 0
+    // Defect(s) Found: 1, expected 'Tim', but actual was 'John'. They have the same priority, but Tim was not dequeuded
     public void TestPriorityQueue_DuplicatedPriorities()
     {
         var priorityQueue = new PriorityQueue();
@@ -46,7 +46,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Try to get the next person from an empty queue
     // Expected Result: Exception should be thrown with appropriate error message.
-    // Defect(s) Found: 0
+    // Defect(s) Found: 0, succeeded.
     public void TestPriorityQueue_EmptyQueue()
     {
         var priorityQueue = new PriorityQueue();
